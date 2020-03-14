@@ -1,6 +1,6 @@
 const setTypes = async () => {
     try{
-        const response = await fetch('./types.json');
+        const response = await fetch(`${config.baseUrl}/service/getAllServiceTypes`);
         const types = await response.json();
         const node = document.querySelector('#type select');
         types.forEach((type)=>{
@@ -17,7 +17,7 @@ const setTypes = async () => {
 
 const setStates = async () => {
     try{
-        const response = await fetch(`${config.baseURL}/service/getAllCities`);
+        const response = await fetch(`${config.baseUrl}/service/getAllCities`);
         const types = await response.json();
         const node = document.querySelector('#state select');
         types.forEach((type)=>{
@@ -34,7 +34,7 @@ const setStates = async () => {
 
 const setCities = async (state) => {
     try{
-        const response = await fetch(`${config.baseURL}/service/getAllCities`);
+        const response = await fetch(`${config.baseUrl}/service/getAllCities`);
         const types = await response.json();
         const node = document.querySelector('#city select');
         types.forEach((type)=>{
@@ -96,7 +96,7 @@ const save = () => {
         haveMultiOutlet,
     }
     
-    const postUrl = `${config.baseURL}/service/onboard`;
+    const postUrl = `${config.baseUrl}/service/onboard`;
 
      postData(postUrl, obj);
 }
