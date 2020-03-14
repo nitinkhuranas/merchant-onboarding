@@ -1,0 +1,23 @@
+{
+    "response": [
+        {
+            "state": "DELHI",
+            "cities": [
+                "NEW DELHI ",
+                "KAROL BAGH "
+            ]
+        },
+        {
+            "state": "UTTAR PRADESH",
+            "cities": [
+                "NOIDA "
+            ]
+        }
+    ],
+    "errorCode": 0,
+    "success": true,
+    "status": "OK",
+    "header": {
+        "Content-Type": "application/json"
+    }
+}

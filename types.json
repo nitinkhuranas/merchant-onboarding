@@ -1,0 +1,14 @@
+{
+    "response": [
+        "FOODCOURT",
+        "RESTAURANT",
+        "QSR",
+        "HOTEL"
+    ],
+    "errorCode": 0,
+    "success": true,
+    "status": "OK",
+    "header": {
+        "Content-Type": "application/json"
+    }
+}

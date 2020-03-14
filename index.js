@@ -1,52 +1,59 @@
+let allCities = null;
+
 const setTypes = async () => {
     try{
         const response = await fetch(`${config.baseUrl}/service/getAllServiceTypes`);
-        const types = await response.json();
+        // const response = await fetch(`types.json`);
+        let data = await response.json();
+        data = data.response;
         const node = document.querySelector('#type select');
-        types.forEach((type)=>{
+        data.forEach((type)=>{
              const selectNode = document.createElement('option');
              selectNode.text = type;
              selectNode.value = type;
              node.appendChild(selectNode);
-        })
+        });
     }
     catch(e){
-        console.log("an error occured on fetching types");
+        console.log("an error occured on fetching types",e);
     }
 }
 
 const setStates = async () => {
     try{
         const response = await fetch(`${config.baseUrl}/service/getAllCities`);
-        const types = await response.json();
+        // const response = await fetch(`./cities.json`);
+        const data = await response.json();
+        allCities = data.response;
         const node = document.querySelector('#state select');
-        types.forEach((type)=>{
+        allCities.forEach(({state})=>{
              const selectNode = document.createElement('option');
-             selectNode.text = type;
-             selectNode.value = type;
+             selectNode.text = state;
+             selectNode.value = state;
              node.appendChild(selectNode);
-        })
+        });
     }
     catch(e){
-        console.log("an error occured on fetching states");
+        console.log("an error occured on fetching states",e);
     }
 }
 
-const setCities = async (state) => {
-    try{
-        const response = await fetch(`${config.baseUrl}/service/getAllCities`);
-        const types = await response.json();
-        const node = document.querySelector('#city select');
-        types.forEach((type)=>{
-             const selectNode = document.createElement('option');
-             selectNode.text = type;
-             selectNode.value = type;
-             node.appendChild(selectNode);
-        })
-    }
-    catch(e){
-        console.log("an error occured on fetching cities");
-    }
+const setCities = (selectedState) => {
+    const node = document.querySelector('#city select');
+    node.innerHTML = '';
+    let selectedCities = [];
+    allCities.forEach(({state, cities}) => {
+        if(selectedState === state){
+            selectedCities = cities;
+        }
+    })
+
+    selectedCities.forEach((type)=>{
+        const selectNode = document.createElement('option');
+        selectNode.text = type;
+        selectNode.value = type;
+        node.appendChild(selectNode);
+    });
 }
 
 const postData = (url = '', data = {}) => {
