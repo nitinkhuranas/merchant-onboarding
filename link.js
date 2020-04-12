@@ -74,7 +74,7 @@ const link = function(){
             city,
             type,
         };
-        const postUrl = `${config.baseUrl}/service/linking`;
+        const postUrl = `${config.baseUrl}/service/getAllServices`;
 
         try{
             const response = await apiServices.postData(postUrl, obj);
@@ -104,7 +104,7 @@ const link = function(){
             city,
             type,
         };
-        const postUrl = `${config.baseUrl}/service/linking`;
+        const postUrl = `${config.baseUrl}/service/getAllServices`;
 
         try{
             const response = await apiServices.postData(postUrl, obj);
