@@ -1,0 +1,16 @@
+{
+    "response": [
+        {
+            "categoryId": 1,
+            "serviceId": 3,
+            "name": "main course",
+            "order": 1
+        }
+    ],
+    "errorCode": 0,
+    "success": true,
+    "status": "OK",
+    "header": {
+        "Content-Type": "application/json"
+    }
+}

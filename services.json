@@ -1,0 +1,46 @@
+{
+    "response": [
+        {
+            "servicId": 1,
+            "userId": "1",
+            "name": "shubham da dhaba",
+            "type": "FOODCOURT",
+            "parentId": null,
+            "phone": "8376056505",
+            "city": "NOIDA",
+            "state": "UTTAR PRADESH",
+            "address": "logix mall Noida",
+            "logoUrl": "www.google.com",
+            "log": 11.111111,
+            "lat": 11.222222,
+            "paymentMode": "PAYTM",
+            "haveMultiOutlet": true,
+            "createdOn": "2020-02-13T18:02:00.000+0000",
+            "updatedOn": "2020-02-13T18:02:00.000+0000"
+        },
+        {
+            "servicId": 2,
+            "userId": "2",
+            "name": "nitin da dhaba",
+            "type": "FOODCOURT",
+            "parentId": null,
+            "phone": "8376056505",
+            "city": "NOIDA",
+            "state": "UTTAR PRADESH",
+            "address": "logix mall Noida",
+            "logoUrl": "www.google.com",
+            "log": 11.111111,
+            "lat": 11.222222,
+            "paymentMode": "PAYTM",
+            "haveMultiOutlet": true,
+            "createdOn": "2020-02-13T18:02:00.000+0000",
+            "updatedOn": "2020-02-13T18:02:00.000+0000"
+        }
+    ],
+    "errorCode": 0,
+    "success": true,
+    "status": "OK",
+    "header": {
+        "Content-Type": "application/json"
+    }
+}
