@@ -5,12 +5,12 @@ const services =  () => {
         const myPromise = new Promise((resolve)=> {
             resolvedPromise = resolve
         });
-    
+
         const getCities = async () => {
             await myPromise;
             return allCities;
         }
-    
+
         const setCities = async () => {
             try{
                 const response = await fetch(`${config.baseUrl}/service/getAllCities`);
@@ -23,24 +23,24 @@ const services =  () => {
                 console.log("an error occured on fetching states",e);
             }
         };
-    
+
         setCities();
-        
+
         return getCities;
     }
-    
+
     const getAllServiceTypes = () => {
         let serviceTypes = [];
         let resolvedPromise;
         const myPromise = new Promise((resolve)=> {
             resolvedPromise = resolve
         });
-    
+
         const getServiceTypes = async () => {
             await myPromise;
             return serviceTypes;
         }
-    
+
         const setServiceTypes = async () => {
             try{
                 const response = await fetch(`${config.baseUrl}/service/getAllServiceTypes`);
@@ -53,12 +53,12 @@ const services =  () => {
                 console.log("an error occured on fetching types",e);
             }
         };
-    
+
         setServiceTypes();
-    
+
         return getServiceTypes;
     }
-    
+
     const postData = (url = '', data = {}) => {
         // Default options are marked with *
         return fetch(url, {
@@ -81,7 +81,7 @@ const services =  () => {
     };
 
     const getCategoryUrl = () => {
-        return `${config.baseUrl}/service/category`;
+        return `${config.baseUrl}/service/items/category`;
     };
 
     const getAllCatagoriesUrl = (servicId) => {
@@ -91,7 +91,7 @@ const services =  () => {
     const getAllGroupsUrl = (servicId) => {
         return `${config.baseUrl}/service/${servicId}/getAllgroups`;
     };
-    
+
     const getAllAddonsUrl = (servicId) => {
         return `${config.baseUrl}/service/${servicId}/getAlladdons`;
     };

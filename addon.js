@@ -19,7 +19,7 @@ const addon = function(){
         const node = document.querySelector('#addon .city select');
         node.innerHTML = '';
         let selectedCities = [];
-        
+
         const cities = await apiServices.getAllCities();
         cities.forEach(({state, cities}) => {
             if(selectedState === state){
@@ -58,7 +58,7 @@ const addon = function(){
             city,
             type,
         };
-        
+
         const postUrl = apiServices.getAllServicesUrl();
 
         try{
@@ -87,18 +87,18 @@ const addon = function(){
         const displayName = document.querySelector('#addon .display-name input').value;
         const unitPrice = document.querySelector('#addon .price input').value;
         const serviceId = document.querySelector('#addon .service select').value;
-        const isVeg = document.querySelector('#addon .veg input').checked;
-        const InStock = document.querySelector('#addon .in-stock input').checked;
+        const veg = document.querySelector('#addon .veg input').checked;
+        const inStock = document.querySelector('#addon .in-stock input').checked;
 
         const obj = {
             name,
             displayName,
             unitPrice,
             serviceId,
-            isVeg,
-            InStock
+            veg,
+            inStock
         };
-        
+
         const postUrl = `${config.baseUrl}/service/add/addons`;
 
         apiServices.postData(postUrl, obj);
