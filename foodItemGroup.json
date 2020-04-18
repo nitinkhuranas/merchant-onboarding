@@ -1,0 +1,45 @@
+{
+    "response": [
+        {
+            "groupId": 1,
+            "groupName": "Bevrages",
+            "servicId": 1,
+            "groupOrder": 1,
+            "multiSelectEnabled": true,
+            "maxSelections": 1,
+            "choices": [],
+            "createdOn": "2020-04-12T07:20:40.000+0000",
+            "updatedOn": "2020-04-12T07:20:40.000+0000"
+        },
+        {
+            "groupId": 5,
+            "groupName": "chicken group",
+            "servicId": 1,
+            "groupOrder": 1,
+            "multiSelectEnabled": true,
+            "maxSelections": 1,
+            "choices": [
+                {
+                    "addonId": 1,
+                    "serviceId": 1,
+                    "name": "chicken half",
+                    "displayName": "Half",
+                    "inStock": true,
+                    "unitPrice": 100,
+                    "createdOn": "2020-04-06T17:10:17.000+0000",
+                    "updatedOn": "2020-04-06T17:10:17.000+0000",
+                    "default": false,
+                    "veg": false
+                }
+            ],
+            "createdOn": "2020-04-12T07:49:49.000+0000",
+            "updatedOn": "2020-04-12T07:49:49.000+0000"
+        }
+    ],
+    "errorCode": 0,
+    "success": true,
+    "status": "OK",
+    "header": {
+        "Content-Type": "application/json"
+    }
+}

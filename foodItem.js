@@ -51,14 +51,14 @@ const foodItem = function(){
         }
     };
 
-    setService = async () => {
+    const setService = async () => {
         const city = document.querySelector('#food-item .city select').value;
         const type = document.querySelector('#food-item .type select').value;
         const obj = {
             city,
             type,
         };
-        const postUrl = `${config.baseUrl}/service/getAllServices`;
+        const postUrl = apiServices.getAllServicesUrl();
 
         try{
             const response = await apiServices.postData(postUrl, obj);
@@ -81,11 +81,12 @@ const foodItem = function(){
         }
     };
 
-    setCategory = async () => {
+    const setCategory = async () => {
         const serviceId = document.querySelector('#food-item .service select').value;
+        const fetchUrl = apiServices.getAllCatagoriesUrl(servicId);
 
         try{
-            const response = await fetch(`${config.baseUrl}/service/${servicId}/getAllCategories`);
+            const response = await fetch(fetchUrl);
             // const response = await fetch(`./categories.json`);
             const data = await response.json();
             const catagories = data.response;
@@ -105,6 +106,31 @@ const foodItem = function(){
         }
     };
 
+    const setFoodItemGroup = async () => {
+        const serviceId = document.querySelector('#food-item .service select').value;
+        const fetchUrl = apiServices.getAllGroupsUrl(servicId);
+
+        try{
+            const response = await fetch(fetchUrl);
+            // const response = await fetch(`./foodItemGroup.json`);
+            const data = await response.json();
+            const foodItemGroups = data.response;
+
+            const node = document.querySelector('#food-item .food-item-group select');
+            node.innerHTML = '';
+
+            foodItemGroups.forEach((foodItemGroup)=>{
+                const selectNode = document.createElement('option');
+                selectNode.text = foodItemGroup.groupName;
+                selectNode.value = JSON.stringify(foodItemGroup);
+                node.appendChild(selectNode);
+            });
+        }
+        catch(e){
+            console.log("an error occured on fetching categories",e);
+        }
+    };
+
     const save = () => {
         const name = document.querySelector('#food-item .name input').value;
         const serviceId = document.querySelector('#food-item .service select').value;
@@ -116,6 +142,7 @@ const foodItem = function(){
         const unitPrice = document.querySelector('#food-item .price input').value;
         const itemScore = document.querySelector('#food-item .item-score input').value;
         const discount = document.querySelector('#food-item .discount input').value;
+        const addons = [document.querySelector('#food-item .food-item-group select').value];
 
         const obj = {
             name,
@@ -128,6 +155,7 @@ const foodItem = function(){
             unitPrice,
             itemScore,
             discount,
+            addons,
         };
         
         const postUrl = `${config.baseUrl}/service/add/foodItem`;
@@ -143,12 +171,13 @@ const foodItem = function(){
 
         document.querySelector('#food-item .type select')
         .addEventListener('change', function(event){
-            setService(this.value);
+            setService();
         });
 
         document.querySelector('#food-item .service select')
         .addEventListener('change', function(event){
-            setCategory(this.value);
+            setCategory();
+            setFoodItemGroup()
         });
 
         document.querySelector('#food-item .save')

@@ -76,10 +76,35 @@ const services =  () => {
         });
     };
 
+    const getAllServicesUrl = () => {
+        return `${config.baseUrl}/service/getAllServices`;
+    };
+
+    const getCategoryUrl = () => {
+        return `${config.baseUrl}/service/category`;
+    };
+
+    const getAllCatagoriesUrl = (servicId) => {
+        return `${config.baseUrl}/service/${servicId}/getAllCategories`;
+    };
+
+    const getAllGroupsUrl = (servicId) => {
+        return `${config.baseUrl}/service/${servicId}/getAllgroups`;
+    };
+    
+    const getAllAddonsUrl = (servicId) => {
+        return `${config.baseUrl}/service/${servicId}/getAlladdons`;
+    };
+
     return {
         getAllCities: getAllCities(),
         getAllServiceTypes: getAllServiceTypes(),
         postData,
+        getAllServicesUrl,
+        getAllCatagoriesUrl,
+        getCategoryUrl,
+        getAllGroupsUrl,
+        getAllAddonsUrl,
     }
 }
 

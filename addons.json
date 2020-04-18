@@ -1,0 +1,34 @@
+{
+    "response": [
+        {
+            "addonId": 1,
+            "serviceId": 1,
+            "name": "chicken half",
+            "displayName": "Half",
+            "inStock": true,
+            "unitPrice": 100,
+            "createdOn": "2020-04-06T17:10:17.000+0000",
+            "updatedOn": "2020-04-06T17:10:17.000+0000",
+            "default": false,
+            "veg": false
+        },
+        {
+            "addonId": 2,
+            "serviceId": 1,
+            "name": "chicken full",
+            "displayName": "Full",
+            "inStock": true,
+            "unitPrice": 100,
+            "createdOn": "2020-04-06T17:10:17.000+0000",
+            "updatedOn": "2020-04-06T17:10:17.000+0000",
+            "default": false,
+            "veg": false
+        }
+    ],
+    "errorCode": 0,
+    "success": true,
+    "status": "OK",
+    "header": {
+        "Content-Type": "application/json"
+    }
+}

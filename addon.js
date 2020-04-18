@@ -51,14 +51,15 @@ const addon = function(){
         }
     };
 
-    setService = async () => {
+    const setService = async () => {
         const city = document.querySelector('#addon .city select').value;
         const type = document.querySelector('#addon .type select').value;
         const obj = {
             city,
             type,
         };
-        const postUrl = `${config.baseUrl}/service/getAllServices`;
+        
+        const postUrl = apiServices.getAllServicesUrl();
 
         try{
             const response = await apiServices.postData(postUrl, obj);

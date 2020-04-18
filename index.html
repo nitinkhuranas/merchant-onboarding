@@ -77,7 +77,7 @@
                 </select>
             </div>
             <div class="parent-type">
-                <label>Type</label>
+                <label>Parent Type</label>
                 <select>
                     <option value=""></option>
                 </select>
@@ -186,8 +186,8 @@
             </div>
             <button class="save">Save</button>
         </div>
-        <div id="food-item">
-            <h3>Food Item</h3>
+        <div id="food-item-group">
+            <h3>Food Item Group</h3>
             <div class="state">
                 <label>State</label>
                 <select>
@@ -216,42 +216,99 @@
                 <label>Name</label>
                 <input type="text"/>
             </div>
-            <div class="description">
-                <label>Description</label>
+            <div class="order">
+                <label>Order</label>
                 <input type="text"/>
             </div>
-            <div class="category">
-                <label>Category</label>
+            <div class="enable-multiselect">
+                <label>Enable Multiselect</label>
+                <input type="checkbox"/>
+            </div>
+            <div class="max-selection">
+                <label>Max Selection</label>
+                <input type="text"/>
+            </div>
+            <div class="addon">
+                <label>Addon</label>
                 <select>
                     <option value=""></option>
                 </select>
             </div>
-            <div class="display-url">
-                <label>Display Url</label>
-                <input type="text"/>
-            </div>
-            <div class="veg">
-                <label>Veg</label>
-                <input type="checkbox"/>
-            </div>
-            <div class="in-stock">
-                <label>In Stock</label>
-                <input type="checkbox"/>
-            </div>
-            <div class="price">
-                <label>Price</label>
-                <input type="text"/>
-            </div>
-            <div class="item-score">
-                <label>Item Score</label>
-                <input type="text"/>
-            </div>
-            <div class="discount">
-                <label>Discount</label>
-                <input type="text"/>
-            </div>
             <button class="save">Save</button>
+            <div id="food-item">
+                <h3>Food Item</h3>
+                <div class="state">
+                    <label>State</label>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="city">
+                    <label>City</label>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="type">
+                    <label>Type</label>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="service">
+                    <label>Service</label>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="name">
+                    <label>Name</label>
+                    <input type="text"/>
+                </div>
+                <div class="description">
+                    <label>Description</label>
+                    <input type="text"/>
+                </div>
+                <div class="category">
+                    <label>Category</label>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="display-url">
+                    <label>Display Url</label>
+                    <input type="text"/>
+                </div>
+                <div class="veg">
+                    <label>Veg</label>
+                    <input type="checkbox"/>
+                </div>
+                <div class="in-stock">
+                    <label>In Stock</label>
+                    <input type="checkbox"/>
+                </div>
+                <div class="price">
+                    <label>Price</label>
+                    <input type="text"/>
+                </div>
+                <div class="item-score">
+                    <label>Item Score</label>
+                    <input type="text"/>
+                </div>
+                <div class="discount">
+                    <label>Discount</label>
+                    <input type="text"/>
+                </div>
+                <div class="food-item-group">
+                    <label>Food item Group</label>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <button class="save">Save</button>
+            </div>
         </div>
+        
 
         <script src="./config.js"></script>
         <script src="./apiServices.js"></script>
@@ -259,6 +316,7 @@
         <script src="./link.js"></script>
         <script src="./category.js"></script>
         <script src="./addon.js"></script>
+        <script src="./foodItemGroup.js"></script>
         <script src="./foodItem.js"></script>
     </body>
 </html>

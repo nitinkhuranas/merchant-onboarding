@@ -1,8 +1,8 @@
-const category = function(){
+const foodItemGroup = function(){
     const setStates = async () => {
         try{
             const cities = await apiServices.getAllCities();
-            const node = document.querySelector('#category .state select');
+            const node = document.querySelector('#food-item-group .state select');
             cities.forEach(({state})=>{
                 const selectNode = document.createElement('option');
                 selectNode.text = state;
@@ -16,7 +16,7 @@ const category = function(){
     };
 
     const setCities = async (selectedState) => {
-        const node = document.querySelector('#category .city select');
+        const node = document.querySelector('#food-item-group .city select');
         node.innerHTML = '';
         let selectedCities = [];
         
@@ -38,7 +38,7 @@ const category = function(){
     const setType = async () => {
         try{
             const serviceTypes = await apiServices.getAllServiceTypes();
-            const node = document.querySelector('#category .type select');
+            const node = document.querySelector('#food-item-group .type select');
             serviceTypes.forEach((type)=>{
                 const selectNode = document.createElement('option');
                 selectNode.text = type;
@@ -52,8 +52,8 @@ const category = function(){
     };
 
     const setService = async () => {
-        const city = document.querySelector('#category .city select').value;
-        const type = document.querySelector('#category .type select').value;
+        const city = document.querySelector('#food-item-group .city select').value;
+        const type = document.querySelector('#food-item-group .type select').value;
         const obj = {
             city,
             type,
@@ -66,7 +66,7 @@ const category = function(){
             const data = await response.json();
             const services = data.response;
 
-            const node = document.querySelector('#category .service select');
+            const node = document.querySelector('#food-item-group .service select');
             node.innerHTML = '';
 
             services.forEach((service)=>{
@@ -81,34 +81,71 @@ const category = function(){
         }
     };
 
+    const setAddon = async () => {
+        const serviceId = document.querySelector('#food-item-group .service select').value;
+        const fetchUrl = apiServices.getAllAddonsUrl(servicId)
+
+        try{
+            const response = await fetch(fetchUrl);
+            // const response = await fetch(`./addons.json`);
+            const data = await response.json();
+            const addons = data.response;
+
+            const node = document.querySelector('#food-item-group .addon select');
+            node.innerHTML = '';
+
+            addons.forEach((addon)=>{
+                const selectNode = document.createElement('option');
+                selectNode.text = addon.displayName;
+                selectNode.value = JSON.stringify(addon);
+                node.appendChild(selectNode);
+            });
+        }
+        catch(e){
+            console.log("an error occured on fetching categories",e);
+        }
+    };
+
     const save = () => {
-        const name = document.querySelector('#category .name input').value;
-        const order = document.querySelector('#category .order input').value;
-        const serviceId = document.querySelector('#category .service select').value;
+        const groupName = document.querySelector('#food-item-group .name input').value;
+        const serviceId = document.querySelector('#food-item-group .service select').value;
+        const groupOrder = document.querySelector('#food-item-group .order input').value;
+        const maxSelections = document.querySelector('#food-item-group .max-selection input').value;
+        const multiSelectEnabled = document.querySelector('#food-item-group .enable-multiselect input').checked;
+        const addons = [document.querySelector('#food-item-group .addon select').value];
 
         const obj = {
-            name,
-            order,
+            groupName,
             serviceId,
+            groupOrder,
+            maxSelections,
+            multiSelectEnabled,
+            addons,
         };
         
-        const postUrl = apiServices.getCategoryUrl();
+        const postUrl = `${config.baseUrl}/service/add/group`;
 
         apiServices.postData(postUrl, obj);
     };
 
     const addListeners = () => {
-        document.querySelector('#category .state select')
+        document.querySelector('#food-item-group .state select')
         .addEventListener('change', function(event){
             setCities(this.value);
         });
 
-        document.querySelector('#category .type select')
+        document.querySelector('#food-item-group .type select')
         .addEventListener('change', function(event){
             setService();
         });
 
-        document.querySelector('#category .save')
+        document.querySelector('#food-item-group .service select')
+        .addEventListener('change', function(event){
+            setAddon();
+        });
+
+
+        document.querySelector('#food-item-group .save')
         .addEventListener('click', function(event){
             save();
         });
@@ -122,4 +159,4 @@ const category = function(){
 
     load();
 }
-category();
+foodItemGroup();
