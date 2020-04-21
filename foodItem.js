@@ -19,7 +19,7 @@ const foodItem = function(){
         const node = document.querySelector('#food-item .city select');
         node.innerHTML = '';
         let selectedCities = [];
-        
+
         const cities = await apiServices.getAllCities();
         cities.forEach(({state, cities}) => {
             if(selectedState === state){
@@ -83,7 +83,7 @@ const foodItem = function(){
 
     const setCategory = async () => {
         const serviceId = document.querySelector('#food-item .service select').value;
-        const fetchUrl = apiServices.getAllCatagoriesUrl(servicId);
+        const fetchUrl = apiServices.getAllCatagoriesUrl(serviceId);
 
         try{
             const response = await fetch(fetchUrl);
@@ -159,7 +159,7 @@ const foodItem = function(){
             discount,
             addons,
         };
-        
+
         const postUrl = `${config.baseUrl}/service/add/foodItem`;
 
         apiServices.postData(postUrl, obj);
