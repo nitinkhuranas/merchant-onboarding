@@ -129,7 +129,9 @@ const link = function(){
 
     const save = () => {
         const parentServiceId = document.querySelector('#link .parent-service select').value;
-        const linkingServices = [document.querySelector('#link .linked-service select').value];
+        const linkingServices = Array.prototype.slice.call(document.querySelectorAll('#link .linked-service option:checked'),0).map(function(v,i,a) {
+            return v.value;
+        });
 
         const obj = {
             parentServiceId,

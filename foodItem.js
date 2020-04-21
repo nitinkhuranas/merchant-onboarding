@@ -108,7 +108,7 @@ const foodItem = function(){
 
     const setFoodItemGroup = async () => {
         const serviceId = document.querySelector('#food-item .service select').value;
-        const fetchUrl = apiServices.getAllGroupsUrl(servicId);
+        const fetchUrl = apiServices.getAllGroupsUrl(serviceId);
 
         try{
             const response = await fetch(fetchUrl);
@@ -142,7 +142,9 @@ const foodItem = function(){
         const unitPrice = document.querySelector('#food-item .price input').value;
         const itemScore = document.querySelector('#food-item .item-score input').value;
         const discount = document.querySelector('#food-item .discount input').value;
-        const addons = [document.querySelector('#food-item .food-item-group select').value];
+        const addons = Array.prototype.slice.call(document.querySelectorAll('#food-item .food-item-group option:checked'),0).map(function(v,i,a) {
+            return v.value;
+        });
 
         const obj = {
             name,

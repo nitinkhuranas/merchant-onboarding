@@ -83,7 +83,7 @@ const foodItemGroup = function(){
 
     const setAddon = async () => {
         const serviceId = document.querySelector('#food-item-group .service select').value;
-        const fetchUrl = apiServices.getAllAddonsUrl(servicId)
+        const fetchUrl = apiServices.getAllAddonsUrl(serviceId)
 
         try{
             const response = await fetch(fetchUrl);
@@ -112,7 +112,9 @@ const foodItemGroup = function(){
         const groupOrder = document.querySelector('#food-item-group .order input').value;
         const maxSelections = document.querySelector('#food-item-group .max-selection input').value;
         const multiSelectEnabled = document.querySelector('#food-item-group .enable-multiselect input').checked;
-        const addons = [document.querySelector('#food-item-group .addon select').value];
+        const addons = Array.prototype.slice.call(document.querySelectorAll('#food-item-group .addon option:checked'),0).map(function(v,i,a) {
+            return v.value;
+        });
 
         const obj = {
             groupName,
